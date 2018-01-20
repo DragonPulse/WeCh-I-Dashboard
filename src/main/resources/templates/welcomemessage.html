@@ -1,0 +1,135 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>WeChat Integration</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <link rel="stylesheet" th:href="@{css/form.css}"></link>
+    <link rel="stylesheet" th:href="@{css/jquery.toast.min.css}"></link>
+    <link rel="stylesheet" th:href="@{css/welcome.css}"></link>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" ></link>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css"> </link>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.14.0/jquery.validate.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
+    <script src="/js/jquery.toast.min.js"></script>
+    <script src="/js/welcomeMessage.js"></script>
+</head>
+<body>
+
+
+<nav class="navbar navbar-inverse">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/home">WeChat Integrator</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">User Management <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/allOpenIds">All Open Ids</a></li>
+                        <li><a href="/allUserDetails">All User Details</a></li>
+                        <!--<li role="separator" class="divider"></li>
+                         <li><a href="#">Separated link</a></li>-->
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Message Management <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/welcomeMessage">Default Welcome Message</a></li>
+                        <li><a href="/sendMessage">Send Message</a></li>
+                        <li><a href="/allMessages">See All Messages</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/logout">Logout</a></li>
+            </ul>
+
+
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+
+
+<div class="container">
+    <div class="well well-lg">
+        <div>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#articleDiv">
+                Add Article for Welcome Message
+            </button>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">Articles List</div>
+            <div class="panel-body">
+                <div id="articles">
+                    <input class="search" placeholder="Search Articles" ></input>
+                    <!--<button class="sort" data-sort="name">-->
+                        <!--Sort by name-->
+                    <!--</button>-->
+
+                <ul class="list"></ul>
+
+            </div></div>
+        </div>
+        <button type="button" class="btn btn-success" name="btnSave" id="btnSave" >Save</button>
+    </div>
+</div>
+
+
+
+
+<div class="modal fade" id="articleDiv" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Add New Article</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form    role="form" id="articleModalForm">
+            <div class="modal-body">
+                    <div class="form-group">
+                        <label for="articleTitle" class="col-form-label">Article Title:* </label>
+                        <input type="text" class="form-control" id="articleTitle" required="true"></input>
+                    </div>
+                    <div class="form-group">
+                        <label for="description" class="col-form-label">Description: *</label>
+                        <textarea class="form-control" id="description" required="true"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="url" class="col-form-label">URL:</label>
+                        <input class="form-control" id="url"></input>
+                    </div>
+                    <div class="form-group">
+                        <label for="picurl" class="col-form-label">Image URL:</label>
+                        <input class="form-control" id="picurl"></input>
+                    </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" id="btnSaveIt" data-dismiss="modal">Save</button>
+                <button type="button" class="btn btn-default" id="btnCloseIt" data-dismiss="modal">Close</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

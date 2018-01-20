@@ -1,0 +1,117 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Common Services - Messaging : EMail Service</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" type="text/css" href="webjars/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <link rel="stylesheet" th:href="@{css/form.css}"/>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">CSM</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">EMail Service</a></li>
+                <li><a th:href="diagnostic-tests">Diagnostic Tests</a></li>
+                <li><a th:href="user-management">User Management</a></li>
+                <li><a th:href="@{/logout}">Logout</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="starter-template">
+        <h4>
+            <h3>Event Logs (Refreshes every 5 sec)</h3>
+            <div id="event-logs" style="overflow-y: scroll; height:300px; background-color: lavender;"></div>
+            <input type="checkbox" name="scroll" value="Auto scroll" checked="true" id="auto-scroll-events"/> Auto
+            Scroll
+        </h4>
+
+        <hr/>
+        <h3>Email service example</h3>
+        <h4>Basic Authorization</h4>
+        <form class="form-horizontal" id="email-form">
+            <div class="form-group form-group-lg">
+                <label class="col-sm-1 control-label">From Name</label>
+
+                <div class="col-sm-7">
+                    <input type="text" class="form-control" id="from-name"/>
+                </div>
+            </div>
+
+            <div class="form-group form-group-lg">
+                <label class="col-sm-1 control-label">From email</label>
+
+                <div class="col-sm-7">
+                    <input type="text" class="form-control" id="from-email"/>
+                </div>
+            </div>
+
+            <div class="form-group form-group-lg">
+                <label class="col-sm-1 control-label">To Name</label>
+
+                <div class="col-sm-7">
+                    <input type="text" class="form-control" id="to-name"/>
+                </div>
+            </div>
+
+            <div class="form-group form-group-lg">
+                <label class="col-sm-1 control-label">To email</label>
+
+                <div class="col-sm-7">
+                    <input type="text" class="form-control" id="to-email"/>
+                </div>
+            </div>
+
+
+            <div class="form-group form-group-lg">
+                <label class="col-sm-1 control-label">Subject</label>
+
+                <div class="col-sm-7">
+                    <input type="text" class="form-control" id="subject"/>
+                </div>
+            </div>
+            <div class="form-group form-group-lg">
+                <label class="col-sm-1 control-label">Type</label>
+
+                <input type="radio" name="type" id="radio-plain" value="PLAIN" checked="true"/>
+                <label>Plain</label>
+                <br/>
+                <input type="radio" name="type" id="radio-html" value="HTML"/>
+                <label>HTML</label>
+            </div>
+            <div class="form-group form-group-lg">
+                <label class="col-sm-1 control-label">Body</label>
+
+                <div class="col-sm-7">
+                    <textarea type="text" class="form-control" id="body"/>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-10">
+                    <button type="submit" id="btn-email"
+                            class="btn btn-primary btn-lg" th:size="10">Send
+                    </button>
+                </div>
+            </div>
+        </form>
+
+        <div id="feedback"></div>
+        <hr/>
+
+    </div>
+
+</div>
+<!-- /.container -->
+<script type="text/javascript" src="webjars/jquery/2.2.4/jquery.min.js"></script>
+<script type="text/javascript" src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript" th:src="@{js/email-form.js}"></script>
+</body>
+</html>
