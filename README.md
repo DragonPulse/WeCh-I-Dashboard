@@ -1,3 +1,3 @@
 # wech-i-dashboard
 
-Special thanks to @PeaceUCR
+Special thanks to @PeaceUCR #PeaceUCR
