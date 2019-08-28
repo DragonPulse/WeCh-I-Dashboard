@@ -64,7 +64,7 @@ public class ScheduledTasks {
      * Executed in first one second later it will be executed every 1.6 hours
      */
     @LogExecutionTime
-    //@Scheduled(fixedRate = 6000000,initialDelay = 1000) //6000000 miliseconds
+    @Scheduled(fixedRate = 6000000,initialDelay = 1000) //6000000 miliseconds
     public void accessTokenGeneratorScheduler() {
         AccessTokenResponse accessTokenResponse = accessTokenService.generateAccessToken();
         accessTokenService.insertAccessToken(accessTokenResponse);
@@ -73,7 +73,7 @@ public class ScheduledTasks {
 
 
     @LogExecutionTime
-    //@Scheduled(fixedRate = 6000000,initialDelay = 2500) //6000000 miliseconds
+    @Scheduled(fixedRate = 6000000,initialDelay = 2500) //6000000 miliseconds
     public void subscriberInfoLoaderScheduler() throws Exception {
         UserResponse userResponse = userService.getUserOpenIds();
         List<SubscriberInfo> subscriberInfoList = new ArrayList<>();
